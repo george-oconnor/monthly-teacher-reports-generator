@@ -49,9 +49,6 @@ def generateReports(df:pd.DataFrame, teacher_li:list):
                         else:
                             break
 
-
-       #print(teacher_details)
-
         teacher_df = pd.DataFrame.from_dict(teacher_details)
         teacher_df.to_excel("./Results/"+teacher+".xlsx")
 
