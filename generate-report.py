@@ -4,10 +4,10 @@ import os
 def getUniqueTeachers(df:pd.DataFrame):
     teacher_li = []
     for index, row in df.iterrows():
-        teacher_li.append(row['Teacher Name'].strip())
+        teacher_li.append(row['Teacher Name'].strip().lower())
 
     unique_teacher_li = list(dict.fromkeys(teacher_li))
-
+    print(unique_teacher_li)
     return unique_teacher_li
 
 def generateReports(df:pd.DataFrame, teacher_li:list):
@@ -20,7 +20,7 @@ def generateReports(df:pd.DataFrame, teacher_li:list):
             "Comment": []
         }
         for index, row in df.iterrows():
-            if row['Teacher Name'].strip() == teacher:
+            if row['Teacher Name'].strip().lower() == teacher:
                 teacher_details["Student Name"].append(row["Student Name"])
                 teacher_details["Subject"].append(row["Subject"])
                 teacher_details["Year Group"].append(row["Year"])
